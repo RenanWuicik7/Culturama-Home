@@ -1,0 +1,193 @@
+/* BANNER */
+.banner {
+    display: grid;
+    gap: 1rem;
+}
+
+.banner img:nth-child(1) {
+    grid-column: 1/3;
+}
+
+.banner img:nth-child(4) {
+    grid-area: 2/2/4/3;
+}
+
+@media screen and (min-width: 720px) {
+
+    .banner {
+        grid-template-columns: calc(50% - 0.75rem) auto auto;
+        column-gap: 1.5rem;
+    }
+
+    .banner img:nth-child(1) {
+        grid-area: 1/1/3/2;
+    }
+    
+    .banner img:nth-child(4) {
+        grid-area: 1/3/3/3;
+    }
+}
+
+
+/* CATEGORIAS */
+.categorias__item {
+    margin: .5rem auto;
+}
+
+@media screen and (min-width: 720px) {
+    .categorias__lista {
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 1.5rem;
+    }
+}
+
+
+@media screen and (min-width: 1020px) {
+    .categorias {
+        display: grid;
+        grid-template-areas: 
+            "titulo titulo"
+            "categorias menu"
+            "categorias imagem"
+        ;
+        grid-template-columns: 55% 45%;
+    }
+
+    .categorias__titulo {
+        grid-area: titulo;
+    }
+
+    .categorias__lista {
+        grid-area: categorias;
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-template-rows: repeat(5, 1fr);
+        column-gap: 0;
+    }
+
+    .categorias__destaques {
+        grid-area: menu;
+    }
+    
+    .categorias__imagem {
+        grid-area: imagem;
+        align-self: end;
+    }
+
+    .categorias__item {
+        min-width: 90%;
+    }
+}
+
+/* DESTAQUES */
+.destaques {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+}
+
+.destaques__barra {
+    flex-grow: 1;
+}
+
+.destaques__navegacao {
+    white-space: nowrap
+}
+
+/* EVENTOS e AGENDA*/
+.eventos,
+.agenda {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eventos__lista,
+.agenda__lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.eventos__item,
+.agenda__item {
+    flex-grow: 1;
+    max-width: 25rem;
+}
+
+.eventos__item {
+    display: grid;
+    grid-template-areas:
+        "imagem imagem"
+        "nome nome"
+        "data data"
+        "local botao"
+    ;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto repeat(2, 1fr) auto;
+    align-items: center;
+}
+
+.eventos__item img {
+    grid-area: imagem;
+}
+
+.eventos__item h3 {
+    grid-area: nome;
+    align-self: end;
+}
+
+.eventos__item h4 {
+    grid-area: data;
+    margin-top: 0.5rem;
+}
+
+.eventos__item h5 {
+    grid-area: local;
+    align-self: end;
+}
+
+.eventos__item button {
+    grid-area: botao;
+}
+
+.eventos__botao,
+.agenda__botao {
+    margin: 1rem;
+    list-style-type: none;
+}
+
+@media screen and (min-width: 720px) and (max-width: 1400px) {
+    .eventos__item:nth-child(7),
+    .eventos__item:nth-child(8),
+    .agenda__item:nth-child(5),
+    .agenda__item:nth-child(6) {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .eventos__botao,
+    .agenda__botao {
+        align-self: end;
+        margin-right: 0;
+    }
+}
+
+
+/* AGENDA */
+.agenda__item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr;
+}
+
+.agenda__item img {
+    grid-column: 1/ 3;
+}
